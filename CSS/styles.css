@@ -287,6 +287,7 @@ nav .reservadas{
 /* Labels como prompt */
 .form label {
     color: #fff;
+    font-size: 2rem;
     margin-bottom: 0.4rem;
 }
 
