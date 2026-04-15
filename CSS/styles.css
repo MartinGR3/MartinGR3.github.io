@@ -14,6 +14,7 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 *,
 *::before,
@@ -25,6 +26,7 @@ body{
     font-family: 'Inter', sans-serif;
     margin: 0;
 }
+
 header{
     position: sticky;
     top: 0;           
@@ -32,16 +34,7 @@ header{
     z-index: 1000;
     background-color: var(--navegacion);
     color: rgb(156, 156, 156);
-    font-size: 1rem;
-}
-header{
-    position: sticky;
-    top: 0;           
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--navegacion);
-    color: rgb(156, 156, 156);
-    font-size: 1rem;
+    font-size: 1.8rem;
 
     animation: headerEntrada 0.6s ease;
 }
@@ -49,7 +42,7 @@ header{
 @keyframes headerEntrada{
     from{
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-2rem);
     }
     to{
         opacity: 1;
@@ -62,19 +55,19 @@ a{
 }
 hr{
     border: none;
-    height: 0.1rem;
+    height: 0.5rem;
     background-color: var(--bordes);
 }
 pre{
-    font-size: 1.3rem;
+    font-size: 2.5rem;
+    margin: 0;
 }
 nav{
-    border-bottom:0.1rem solid var(--bordes) ;
+    border-bottom:0.3rem solid var(--bordes) ;
 }
 nav a{
-    padding: 0.1rem 1rem;
-    border-left: 0.1rem solid var(--bordes);
-    margin: 0;
+    padding: 0.3rem 2rem;
+    border-left: 0.3rem solid var(--bordes);
     position: relative;
     transition: background 0.3s, color 0.3s;
 }
@@ -88,11 +81,13 @@ nav a::after{
     left: 0;
     bottom: 0;
     width: 0%;
-    height: 2px;
+    height: 0.1rem;
     background-color: var(--funciones);
     transition: width 0.3s ease;
 }
-
+h2{
+    font-size: 3rem;
+}
 nav a:hover::after{
     width: 100%;
 }
@@ -101,24 +96,24 @@ main{
     background-color: var(--fondoEditor);
     font-family: var(--tipoConsola);
     color: white;
+    margin-top: 0;
+    font-size: 1rem;
 }
 img{
-    width: 11rem;
-    height: 13rem;
-    margin-top: 0;
+    width: 30rem;
+    height: 30rem;
 }
 hr{
     background-color: var(--bordes);
-    padding: 0.1rem;
+    padding: 0.4rem;
 }
 .headerTop{
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.1rem solid var(--bordes);
-    margin: 0.1rem;
+    border-bottom: 0.3rem solid var(--bordes);
 }
 .header span{
-    padding: 0.5rem;
+    padding: 1rem;
 }
 .name{
     color: var(--funciones);
@@ -128,7 +123,7 @@ nav .function,
 nav .reservadas{
     font-family: var(--tipoConsola);
     font-weight: 800;
-    font-size: 0.6rem;
+    font-size: 1.3rem;
 }
 .yellow{
     color: yellow;
@@ -152,8 +147,8 @@ nav .reservadas{
     width: 1rem; 
     height: 1rem; 
     border-radius: 50%;
-    padding: 0.2rem; 
-    margin: 0.25rem;
+    padding: 0.3rem; 
+    margin: 0.5rem;
 }
 .red{
     background-color: red;
@@ -171,19 +166,12 @@ nav .reservadas{
 .html{
     display: flex;
     font-family: var(--tipoConsola);
-    height: 38rem;
-}
-.section-full {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
 }
 .numero{
     color: var(--comentarios);
-    font-size: 1.1rem;
+    font-size: 3rem;
     padding: 1rem;
-}
-.indentacion{
-    text-indent: 4rem;
+    margin: 0 2rem 0 0;
 }
 .project,
 .skills,
@@ -195,57 +183,64 @@ nav .reservadas{
 .skills{
     background-color: var(--fondoPrincipal);
     flex-direction: column;
-    height: 38rem;
+    height: 80rem;
 }
 .pestaña{
     display: flex;
     align-items: center; 
+    font-size: 2rem;
     background-color: var(--bordes);
-    width: 32rem;
-    height: 1.5rem;
-    margin-left: 1rem;
+    width: 60rem;
+    height: 2.5rem;
+    margin-left: 2rem;
 }
 .contenido{
+    font-size: 1.8rem;
     border: 0.2rem solid var(--bordes);
-    width: 32rem;
-    height: 25rem;
-    margin-left: 1rem;
+    width: 60rem;
+    height: 40rem;
+    margin-left: 2rem;
 }
-.project h2{
-    font-size: 1.3rem;
+.titulo{
+    font-size: 3rem;
 }
 .project p{
     color: var(--bordes);
 }
 .project{
     font-family: var(--tipoVideojuego);
+    height: 80rem;
     flex-direction: column;
-    height: 32rem;
-
+}
+.project,
+.skills,
+.terminal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .bloque{
     width:3rem;
-    height: 20rem;
+    height: 45rem;
 }
 .bloquegris{
     background-color: var(--comentarios);
-    width: 11rem;
+    width: 30rem;
 }
 .bloque p{
-    font-size: 0.6rem;
+    font-size: 1rem;
     text-align: center;
 }
 .btnContainer{
     display: flex;
     justify-content: center;
-    margin-top: 5rem;
 }
 .btn{
     margin: 0 2rem;
-    font-size: 1rem;
-    background-color: var(--bordes);
-    border-bottom: 0.5rem solid var(--fondoPrincipal);
-    border-left: 0.5rem solid var(--fondoPrincipal);
+    font-size: 3rem;
+    background-color: var(--comentarios);
+    border-bottom:1rem solid var(--bordes);
+    border-left: 1rem solid var(--bordes);
     color: white;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -253,20 +248,22 @@ nav .reservadas{
 /* Contenedor general */
 .contacto {
     display: flex;
+    height: 80rem;
     flex-direction: column;
     align-items: center;
     background: #0c0c0c;
-    padding: 40px;
+    padding: 1rem;
+    margin: 0;
 }
 
 /* Ventana tipo CMD */
 .form {
     background: #000;
-    border: 1px solid #555;
+    border: 0.2rem solid #555;
     width: 40rem;
     padding: 0;
     font-family: Consolas, monospace;
-    box-shadow: 0 0 10px #000;
+    margin: 0;
 }
 
 /* Barra superior tipo ventana */
@@ -275,21 +272,22 @@ nav .reservadas{
     display: block;
     background: #c0c0c0;
     color: black;
-    padding: 5px 10px;
-    font-size: 0.9rem;
+    padding: 1rem 40rem;
+    font-size: 2rem;
 }
 
 /* Contenido interno */
 .form div {
     display: flex;
     flex-direction: column;
-    padding: 10px 15px;
+    padding: 3rem 3rem;
+    margin: 0;
 }
 
 /* Labels como prompt */
 .form label {
     color: #fff;
-    margin-bottom: 3px;
+    margin-bottom: 0.4rem;
 }
 
 /* Inputs */
@@ -299,7 +297,7 @@ nav .reservadas{
     border: none;
     color: #fff;
     font-family: Consolas, monospace;
-    font-size: 1rem;
+    font-size: 2rem;
     outline: none;
 }
 
@@ -319,11 +317,12 @@ nav .reservadas{
 .btn-terminal {
     background: #c0c0c0;
     color: black;
-    border: 1px solid #555;
-    padding: 5px 10px;
+    border: 0.3rem solid #555;
+    padding: 0.5rem 10rem;
     font-family: Consolas, monospace;
     cursor: pointer;
-    margin: 10px 15px;
+    font-size: 2rem;
+  
 }
 
 /* Hover clásico */
@@ -334,16 +333,14 @@ nav .reservadas{
 .card {
     display: flex;
     background-color: var(--comentarios);
-    width: 20rem;
-    height: 20rem;
-    padding: 1rem;
-    margin: 0 1rem;
+    width: 40rem;
+    height: 40rem;
+    margin: 0 4rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transform: translateY(-1rem) scale(1.02);
 }
 
 .cards{
@@ -358,6 +355,10 @@ nav .reservadas{
 }
 
 .redSocial{
-    font-size: 2rem;
-    text-align: center;
+    display: flex;
+    font-size: 4rem;
+    justify-content: space-between;
+}
+.redSocial a{
+    margin-left: 10rem;
 }
