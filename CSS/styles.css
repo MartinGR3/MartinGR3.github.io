@@ -1,0 +1,363 @@
+:root{
+    --fondoPrincipal:#010409;
+    --fondoEditor:#0d1117;
+    --navegacion:#161b22;
+    --bordes:#30363d;
+    --acento:#58a6ff;
+    --palabrasRemarcadas:#a5d6ff;
+    --palabrasReservadas: #ff7b72;
+    --funciones:#d2a8ff;
+    --comentarios:#8b949e;
+    --tipoVideojuego: 'Press Start 2P', cursive;
+    --tipoConsola:'Fira Code', monospace;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body{
+    background-color: var(--fondoPrincipal);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+header{
+    position: sticky;
+    top: 0;           
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--navegacion);
+    color: rgb(156, 156, 156);
+    font-size: 1rem;
+}
+header{
+    position: sticky;
+    top: 0;           
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--navegacion);
+    color: rgb(156, 156, 156);
+    font-size: 1rem;
+
+    animation: headerEntrada 0.6s ease;
+}
+
+@keyframes headerEntrada{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+a{
+    color: rgb(156, 156, 156);
+    text-decoration: none;
+}
+hr{
+    border: none;
+    height: 0.1rem;
+    background-color: var(--bordes);
+}
+pre{
+    font-size: 1.3rem;
+}
+nav{
+    border-bottom:0.1rem solid var(--bordes) ;
+}
+nav a{
+    padding: 0.1rem 1rem;
+    border-left: 0.1rem solid var(--bordes);
+    margin: 0;
+    position: relative;
+    transition: background 0.3s, color 0.3s;
+}
+nav a:hover{
+    background-color: rgba(255,255,255,0.05);
+    color: white;
+}
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--funciones);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after{
+    width: 100%;
+}
+
+main{
+    background-color: var(--fondoEditor);
+    font-family: var(--tipoConsola);
+    color: white;
+}
+img{
+    width: 11rem;
+    height: 13rem;
+    margin-top: 0;
+}
+hr{
+    background-color: var(--bordes);
+    padding: 0.1rem;
+}
+.headerTop{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid var(--bordes);
+    margin: 0.1rem;
+}
+.header span{
+    padding: 0.5rem;
+}
+.name{
+    color: var(--funciones);
+}
+nav .yellow,
+nav .function,
+nav .reservadas{
+    font-family: var(--tipoConsola);
+    font-weight: 800;
+    font-size: 0.6rem;
+}
+.yellow{
+    color: yellow;
+}
+.function{
+    color: var(--funciones);
+}
+.reservadas{
+    color: var(--palabrasReservadas);
+}
+.remarcados{
+    color: var(--palabrasRemarcadas);
+}
+.comentarios{
+    color: var(--comentarios);
+}
+.naranja{
+    color: orange;
+}
+.dot { 
+    width: 1rem; 
+    height: 1rem; 
+    border-radius: 50%;
+    padding: 0.2rem; 
+    margin: 0.25rem;
+}
+.red{
+    background-color: red;
+}
+.yell{
+    background-color: yellow;
+}
+.green{
+    background-color: greenyellow;
+}
+.colorgris{
+    background-color: #66727e;
+}
+
+.html{
+    display: flex;
+    font-family: var(--tipoConsola);
+    height: 38rem;
+}
+.section-full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+.numero{
+    color: var(--comentarios);
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+.indentacion{
+    text-indent: 4rem;
+}
+.project,
+.skills,
+.terminal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.skills{
+    background-color: var(--fondoPrincipal);
+    flex-direction: column;
+    height: 38rem;
+}
+.pestaña{
+    display: flex;
+    align-items: center; 
+    background-color: var(--bordes);
+    width: 32rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+}
+.contenido{
+    border: 0.2rem solid var(--bordes);
+    width: 32rem;
+    height: 25rem;
+    margin-left: 1rem;
+}
+.project h2{
+    font-size: 1.3rem;
+}
+.project p{
+    color: var(--bordes);
+}
+.project{
+    font-family: var(--tipoVideojuego);
+    flex-direction: column;
+    height: 32rem;
+
+}
+.bloque{
+    width:3rem;
+    height: 20rem;
+}
+.bloquegris{
+    background-color: var(--comentarios);
+    width: 11rem;
+}
+.bloque p{
+    font-size: 0.6rem;
+    text-align: center;
+}
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.btn{
+    margin: 0 2rem;
+    font-size: 1rem;
+    background-color: var(--bordes);
+    border-bottom: 0.5rem solid var(--fondoPrincipal);
+    border-left: 0.5rem solid var(--fondoPrincipal);
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+}
+/* Contenedor general */
+.contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #0c0c0c;
+    padding: 40px;
+}
+
+/* Ventana tipo CMD */
+.form {
+    background: #000;
+    border: 1px solid #555;
+    width: 40rem;
+    padding: 0;
+    font-family: Consolas, monospace;
+    box-shadow: 0 0 10px #000;
+}
+
+/* Barra superior tipo ventana */
+.form::before {
+    content: "C:\\Users\\Rico\\contact.exe";
+    display: block;
+    background: #c0c0c0;
+    color: black;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+/* Contenido interno */
+.form div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+}
+
+/* Labels como prompt */
+.form label {
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+/* Inputs */
+.form input,
+.form textarea {
+    background: black;
+    border: none;
+    color: #fff;
+    font-family: Consolas, monospace;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Cursor blanco */
+.form input,
+.form textarea {
+    caret-color: #fff;
+}
+
+/* Placeholder gris */
+.form input::placeholder,
+.form textarea::placeholder {
+    color: #888;
+}
+
+/* Botón estilo CMD */
+.btn-terminal {
+    background: #c0c0c0;
+    color: black;
+    border: 1px solid #555;
+    padding: 5px 10px;
+    font-family: Consolas, monospace;
+    cursor: pointer;
+    margin: 10px 15px;
+}
+
+/* Hover clásico */
+.btn-terminal:hover {
+    background: #a0a0a0;
+}
+
+.card {
+    display: flex;
+    background-color: var(--comentarios);
+    width: 20rem;
+    height: 20rem;
+    padding: 1rem;
+    margin: 0 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+}
+.card div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.redSocial{
+    font-size: 2rem;
+    text-align: center;
+}
