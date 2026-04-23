@@ -18,13 +18,13 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
 
-      <a class="navbar-brand d-lg-none" href="#">M R</a>
+      <a id="movil" class="navbar-brand d-lg-none" href="#">M R</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
+        <span  class=" navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,20 +50,20 @@
 
     </div>
   </nav>
-  <main>
-    <video   autoplay muted loop playsinline class="bg-video">
+  <video   autoplay muted loop playsinline class="bg-video">
       <source id="videoSource" src="pictures/Dia.mp4" type="video/mp4">
     </video>
+  <main>
 
     <div id="carouselCards" class="carousel slide">
-
       <div class="carousel-inner">
 
         <!-- Inicio -->
         <div class="carousel-item active">
           <section class="card-glass grid">
             <div>
-              <h1 class="title">Bienvenido, <br> soy <span  class="gradient-text">Martin Rico</span></h1>
+              <h1 class="title texto">Bienvenido, <br> soy <span  class="gradient-text">Martin Rico</span></h1>
+              <img class="imagen d-block d-md-none" src="pictures/foto.png">
               <p class="p">Soy Ingeniero en computación enfocado en el desarrollo Java Full-Stack.</p>
               <div style="display: flex; justify-content: space-evenly;">
                 <a class="btn-card" href="#carouselCards" data-bs-slide-to="1">Conóceme</a>
@@ -76,7 +76,7 @@
                   target="_blank"><i class="fa-solid fa-envelope"></i></i></a>
               </div>
             </div>
-            <img class="imagen" style="  grid-column: 2;" src="pictures/foto.png">
+            <img class="imagen d-none d-md-block" src="pictures/foto.png">
           </section>
         </div>
 
@@ -192,44 +192,44 @@
 
               <h3 class="subtitle"> Hard Skills</h3>
               <div class="icons">
-                <div class="icon-item" style="flex-direction: column;">
+                <div class="icon-item">
                   <i class="fa-brands fa-css3-alt"></i>
-                  <span>CSS</span>
+                  <span class="skill">CSS</span>
                 </div>
 
                 <div class="icon-item">
                   <i class="fa-brands fa-html5"></i>
-                  <span>HTML</span>
+                  <span class="skill">HTML</span>
                 </div>
 
                 <div class="icon-item">
                   <i class="fa-brands fa-java"></i>
-                  <span>Java</span>
+                  <span class="skill">Java</span>
                 </div>
 
                 <div class="icon-item">
                   <i class="fa-solid fa-c"></i>
-                  <span>C</span>
+                  <span class="skill">C</span>
                 </div>
 
                 <div class="icon-item">
                   <i class="fa-brands fa-js"></i>
-                  <span>JavaScript</span>
+                  <span class="skill">JavaScript</span>
                 </div>
 
                 <div class="icon-item">
                   <i class="fa-brands fa-github"></i>
-                  <span>GitHub</span>
+                  <span class="skill">GitHub</span>
                 </div>
 
                 <div class="icon-item">
                   <i class="fa-brands fa-git-alt"></i>
-                  <span>Git</span>
+                  <span class="skill">Git</span>
                 </div>
 
                 <div class="icon-item">
                   <i class="fa-brands fa-bootstrap"></i>
-                  <span>Bootstrap</span>
+                  <span class="skill">Bootstrap</span>
                 </div>
               </div>
               <br>

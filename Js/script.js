@@ -12,6 +12,8 @@ function cambiarFondo() {
   const botonDN=document.querySelector('#DiaNoche');
   const btn =document.querySelectorAll(".btn-card");
   const nom =document.querySelector(".gradient-text");
+  const movil=document.querySelector("#movil");
+  const burger=document.querySelector('nav');
 
   video.style.opacity = 0;
 
@@ -25,6 +27,8 @@ function cambiarFondo() {
       nom.style.background= "linear-gradient(to bottom, #1a1f4d, #3b2f73, #4a6fa5, #6fa8a8)";
       nom.style.webkitBackgroundClip = "text";
       nom.style.webkitTextFillColor = "transparent";
+      movil.style.color="white";
+      burger.classList.add("navbar-dark");
 
       nav.forEach(link=>{
         link.style.color = "white";
@@ -46,6 +50,8 @@ function cambiarFondo() {
       fot.style.removeProperty("background");
       fot.style.removeProperty("color");
       nom.style.removeProperty("background");
+      movil.style.removeProperty("color");
+      burger.classList.toggle("navbar-dark");
 
       nav.forEach(link=>{
         link.style.removeProperty("color");
