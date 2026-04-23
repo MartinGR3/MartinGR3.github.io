@@ -1,75 +1,99 @@
-/* Plantilla de fuentes y colores */
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
 :root {
-  --font: "Bentham", serif;
+  --font:        "Bentham", serif;
+  --clr-accent:  #4facfe;
+  --clr-accent2: #00f2fe;
+  --clr-glow:    rgba(255, 255, 150, 0.8);
+  --clr-glow-bg: rgba(255, 255, 150, 0.2);
+  --clr-glass:   rgba(255, 255, 255, 0.08);
+  --clr-border:  rgba(255, 255, 255, 0.25);
+  --transition:  0.3s ease;
+  --radius-card: clamp(2rem, 4vw, 4rem);
+  --radius-btn:  5rem;
 }
 
-/* Etiquetas */
+/* =========================================================
+   RESET Y BASE
+   ========================================================= */
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: clamp(50%, 1.5vw, 62.5%);
+  scroll-behavior: smooth;
 }
 
-*,
-*:before,
-*:after {
+*, *::before, *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: var(--font);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+a { text-decoration: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-.textNight {
-  color: white;
+/* =========================================================
+   MODO NOCHE
+   ========================================================= */
+.textNight { color: white; }
+
+/* =========================================================
+   VIDEO DE FONDO
+   ========================================================= */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  transition: opacity 0.5s ease;
 }
 
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 nav {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
 }
 
-a {
-  text-decoration: none;
-}
-
-footer {
-  color: black;
-}
-
-
-/*Clases*/
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: radial-gradient(circle at center,
-      rgba(255, 255, 180, 0.95) 0%,
-      rgba(255, 255, 150, 0.6) 40%,
-      rgba(255, 255, 150, 0.2) 70%,
-      transparent 100%);
-
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 180, 0.95) 0%,
+    rgba(255, 255, 150, 0.6) 40%,
+    rgba(255, 255, 150, 0.2) 70%,
+    transparent 100%
+  );
   backdrop-filter: blur(0.5rem);
+  box-shadow: 0 0 10rem var(--clr-glow);
   border-bottom: none;
-  box-shadow: 0 0 10rem rgba(255, 255, 150, 0.8);
 }
 
 .navbar-collapse {
-  background: radial-gradient(circle at center,
-      rgba(255, 255, 180, 0.95) 0%,
-      rgba(255, 255, 150, 0.6) 40%,
-      rgba(255, 255, 150, 0.2) 70%,
-      transparent 100%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 180, 0.95) 0%,
+    rgba(255, 255, 150, 0.6) 40%,
+    rgba(255, 255, 150, 0.2) 70%,
+    transparent 100%
+  );
   padding: 1rem;
 }
 
@@ -77,179 +101,177 @@ footer {
   text-transform: uppercase;
   color: black;
   padding: 0 1rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   border-radius: 2rem;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.navbar a:hover {
+  color: black;
+  background: var(--clr-glow-bg);
 }
 
 .navbar-brand {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 900;
-}
-
-.card {
-  margin: 5rem;
-  border-radius: 10rem;
-  transition: 0.3s;
-}
-
-.card-img {
-  border-radius: 2rem;
-  height: 50vh;
-
-}
-
-.bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  transition: opacity 0.5s;
-  z-index: -1;
+  letter-spacing: 0.05em;
 }
 
 .day-night {
-  padding: 0 1rem;
+  padding: 0.4rem 1rem;
   background-color: white;
   border-radius: 2rem;
   border: 0.2rem solid rgb(217, 219, 240);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
 }
 
 .day-night:hover {
   outline: none;
   border-color: transparent;
-  box-shadow: none;
+  box-shadow: 0 0 1.5rem var(--clr-glow);
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #4facfe, #00f2fe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+#formularioNav input,
+#formularioNav button {
+  border-radius: 2rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+}
+
+/* =========================================================
+   MAIN / CAROUSEL
+   ========================================================= */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
 }
 
 .card-glass {
-  min-width: 70%;
-  min-height: 100%;
-  margin: 2rem;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 5rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: min(95%, 120rem);
+  min-width: unset;
+  margin: 2rem auto;
+  background: var(--clr-glass);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--clr-border);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.25),
     inset 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
 }
 
-.title {
-  font-family: var(--font);
-  margin: 3rem;
-  font-weight: 700;
-  font-size: 8rem;
+.carousel-indicators [data-bs-target] {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  transition: background-color var(--transition), transform var(--transition);
 }
 
-.p {
-  margin: 5rem;
-  font-size: 2.8rem;
+.carousel-indicators .active {
+  background-color: var(--clr-accent);
+  transform: scale(1.3);
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-  width: 5rem;
-  height: 5rem;
+  width: clamp(3.5rem, 5vw, 5rem);
+  height: clamp(3.5rem, 5vw, 5rem);
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background var(--transition);
 }
 
-.imagen {
-  border-radius: 5rem;
-  width: 60%;
-  height: 100%;
-  justify-self: center;
-  filter: drop-shadow(0 0 0.2rem rgba(255, 255, 150, 0.8));
-   grid-column: 2;
-  transition: 0.3s;
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(0, 0, 0, 0.45);
 }
 
-.imagen2 {
-  border-radius: 60rem;
-  justify-self: center;
-  width: 60%;
-  transition: 0.3s;
-  box-shadow: 0 0 0.8rem rgba(255, 255, 150, 0.8);
+/* =========================================================
+   TIPOGRAFIA FLUIDA CON clamp()
+   ========================================================= */
+.title {
+  font-family: var(--font);
+  margin: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 8rem);
+  line-height: 1.1;
 }
 
-.btn-card {
-  background: linear-gradient(90deg, #4facfe, #00f2fe);
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-  box-shadow: 0 0 0.8rem rgba(255, 255, 150, 0.8);
-  padding: 1rem 2rem;
-  border-radius: 5rem;
-  text-transform: uppercase;
-  transition: 0.3s;
+.p {
+  margin: clamp(1rem, 2vw, 3rem) clamp(2rem, 5vw, 5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem);
+  line-height: 1.6;
 }
 
 .subtitle {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-.soft-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  margin: 0;
-  transition: 0.3s;
+.gradient-text {
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.imagen:hover,
-.imagen2:hover,
-.btn-card:hover,
-.icons a:hover,
-.icon-item:hover {
-  transform: translateY(-10px);
-}
-
-.card:hover,
-.soft-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 150, 0.2);
-  box-shadow: 0 0 0.8rem rgba(255, 255, 150, 0.8);
-}
-
-.icons a,
-.icons {
+/* =========================================================
+   BOTONES CTA
+   ========================================================= */
+.cta-buttons {
   display: flex;
-  font-size: 4rem;
-  margin-top: 2rem;
-  justify-content: space-around;
-  color: rgba(255, 255, 150, 0.7);
-  transition: 0.3s;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: clamp(1rem, 2vw, 2rem) clamp(2rem, 5vw, 5rem);
 }
 
-.icon-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 4rem;
-  margin: 1rem;
-  transition: 0.3s;
+.btn-card {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-accent2));
+  color: white;
+  text-align: center;
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
+  font-weight: 600;
+  box-shadow: 0 0 0.8rem var(--clr-glow);
+  padding: clamp(0.7rem, 1vw, 1rem) clamp(1.5rem, 2.5vw, 2.5rem);
+  border-radius: var(--radius-btn);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
 }
 
-.row {
-  --bs-gutter-x: 10px;
-  --bs-gutter-y: 10px;
+.btn-card--outline {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  box-shadow: none;
 }
 
-.icon-item span {
-  font-size: 2rem;
-  margin-top: 0.5rem;
+.btn-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 2rem rgba(79, 172, 254, 0.5);
+  color: white;
 }
 
+.btn-card--outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================
+   LAYOUT HELPERS
+   ========================================================= */
 .flexColumn {
   display: flex;
   flex-direction: column;
@@ -259,35 +281,242 @@ footer {
 .flexRow {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
+/* Grid auto-fit: colapsa solo cuando no cabe, sin breakpoint manual */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  align-items: center;
+  gap: 2rem;
+}
+
+.slide-content { padding: clamp(1rem, 2vw, 2rem); }
+
+@media (min-width: 768px) {
+  .about-text { grid-column: 2; }
+  .foto       { grid-column: 2; }
+  .imagen     { grid-column: 2; }
+}
+
+/* =========================================================
+   IMAGENES FLUIDAS
+   ========================================================= */
+.imagen {
+  border-radius: 5rem;
+  width: clamp(50rem, 40%, 60%);
+  justify-self: center;
+  filter: drop-shadow(0 0 0.1rem white);
+  transition: transform var(--transition);
+}
+
+.imagen2 {
+  border-radius: 60rem;
+  justify-self: center;
+  width: clamp(18rem, 35%, 60%);
+  box-shadow: 0 0 0.8rem var(--clr-glow);
+  transition: transform var(--transition);
+}
+
+.imagen:hover,
+.imagen2:hover { transform: translateY(-10px); }
+
+/* =========================================================
+   CARDS DE PROYECTO
+   ========================================================= */
+.card {
+  margin: 1.5rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card-img {
+  border-radius: 2rem;
+  height: clamp(22rem, 40vh, 50vh);
+  object-fit: cover;
+}
+
+.project-card  { border-radius: 2rem; }
+
+.project-link {
+  color: var(--clr-accent2);
+  font-size: clamp(1.3rem, 1.5vw, 1.6rem);
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.project-link:hover { color: white; }
+
+.projects-row {
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: var(--clr-glow-bg);
+  box-shadow: 0 0 2rem var(--clr-glow);
+}
+
+/* =========================================================
+   EXPERIENCIA
+   ========================================================= */
+.exp-row {
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.exp-col {
+  flex: 1 1 28rem;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.bg-transparente {
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-}
-.foto{
-   grid-column: 2;
+.exp-heading {
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
+.exp-card {
+  width: min(95%, 46rem);
+  border-radius: 2rem;
+  text-align: center;
+  padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.exp-title {
+  font-size: clamp(1.8rem, 2vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.exp-org {
+  font-size: clamp(1.5rem, 1.8vw, 1.8rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.3rem;
+}
+
+.exp-date {
+  font-size: clamp(1.3rem, 1.5vw, 1.5rem);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.exp-logo {
+  width: clamp(25%, 30%, 50%);
+  margin: 1.5rem auto 0;
+}
+
+.exp-logo--sm { width: clamp(15%, 20%, 40%); }
+
+/* =========================================================
+   HABILIDADES — HARD SKILLS
+   ========================================================= */
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  color: rgba(255, 255, 150, 0.7);
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin: clamp(0.5rem, 1vw, 1rem);
+  transition: transform var(--transition), color var(--transition);
+  cursor: default;
+}
+
+.icon-item span.skill {
+  font-size: clamp(1.1rem, 1.5vw, 1.6rem);
+  margin-top: 0.5rem;
+}
+
+.icon-item:hover {
+  transform: translateY(-10px);
+  color: white;
+}
+
+div.icons a {
+  color: rgba(255, 255, 150, 0.7);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  transition: transform var(--transition), color var(--transition);
+}
+
+div.icons a:hover {
+  transform: translateY(-10px);
+  color: white;
+}
+
+/* =========================================================
+   HABILIDADES — SOFT SKILLS
+   ========================================================= */
+.soft-skills-container {
+  margin: 2rem auto;
+  width: 100%;
+  padding: 0 clamp(0.5rem, 2vw, 2rem);
+}
+
+.soft-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.soft-card:hover {
+  transform: translateY(-8px);
+  background: var(--clr-glow-bg);
+  box-shadow: 0 0 1.5rem var(--clr-glow);
+}
+
+.soft-icon {
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: var(--clr-accent);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.soft-card .card-title { font-size: clamp(1.3rem, 1.5vw, 1.6rem); font-weight: 700; }
+.soft-card .card-text  { font-size: clamp(1.1rem, 1.3vw, 1.3rem); opacity: 0.85; }
+
+/* =========================================================
+   FONDO TRANSPARENTE
+   ========================================================= */
+.bg-transparente {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   FOOTER FLUIDO
+   ========================================================= */
+footer { color: black; }
+
 .footer {
-  /* background: linear-gradient(to bottom, #0f172a, #312e81, #1e40af, #2a9d8f); */
-  background: linear-gradient(to bottom,
-      #87ceeb 0%,
-      /* cielo azul */
-      #b0e0e6 40%,
-      /* horizonte claro */
-      #98fb98 70%,
-      /* verde claro */
-      #2e7d32 100%
-      /* tierra */
-    );
+  background: linear-gradient(
+    to bottom,
+    #87ceeb 0%,
+    #b0e0e6 40%,
+    #98fb98 70%,
+    #2e7d32 100%
+  );
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: flex-start;
@@ -296,181 +525,104 @@ footer {
 
 .footer-title {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: clamp(2rem, 2.5vw, 3rem);
   margin-bottom: 1rem;
 }
 
 .footer-text {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 1.8vw, 2rem);
+  line-height: 1.6;
 }
 
-.footer-links li {
-  margin-bottom: 0.5rem;
-}
+.footer-links li { margin-bottom: 0.7rem; }
 
 .footer-links a {
   text-decoration: none;
   color: black;
-  font-size: 2rem;
-  transition: 0.3s;
+  font-size: clamp(1.5rem, 1.8vw, 2rem);
+  transition: color var(--transition), padding-left var(--transition);
 }
 
-.footer-links a:hover {
-  color: #ffd700;
-  padding-left: 5px;
-}
+.footer-links a:hover { color: #0047ab; padding-left: 6px; }
 
 .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  font-size: 4rem;
+  gap: 2rem;
+  font-size: clamp(2.5rem, 4vw, 4rem);
   margin-top: 1rem;
 }
 
 .footer-icons a {
   color: black;
-  transition: 0.3s;
+  transition: color var(--transition), transform var(--transition);
 }
 
 .footer-icons a:hover {
-  color: #ffd700;
+  color: #0047ab;
   transform: translateY(-5px) scale(1.1);
 }
 
-.footer .row>div {
+.footer .row > div {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-/* ID */
-#formularioNav input,
-#formularioNav button {
-  border-radius: 2rem;
-  font-size: 1.5rem;
+/* =========================================================
+   BOOTSTRAP OVERRIDES
+   ========================================================= */
+.row {
+  --bs-gutter-x: 10px;
+  --bs-gutter-y: 10px;
 }
 
-@media (max-width: 1280px) {
-  nav {
-    font-size: 1.2rem;
-  }
+/* =========================================================
+   BREAKPOINT 1 — TABLET  (≤ 992px)
+   ========================================================= */
+@media (max-width: 992px) {
+  .card-glass { padding: 1.5rem; }
+  .exp-col    { flex: 1 1 100%; max-width: 55rem; }
+  #formularioNav { display: none !important; }
 }
 
-@media (max-width: 1090px) {
-  nav {
-    font-size: 1rem;
-  }
-
-  .imagen {
-    width: 60%;
-    height: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .card-glass {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .imagen2 {
-    width: 30rem;
-    margin-left: 2rem;
-  }
-
-  .btn-card {
-    font-size: 1.5rem;
-  }
-
-  .imagen {
-    width: 25rem;
-    height: auto;
-  }
-
-  .title {
-    font-size: 4rem;
-  }
-
-  .p {
-    font-size: 2rem;
-  }
-}
-
+/* =========================================================
+   BREAKPOINT 2 — MOVIL  (≤ 620px)
+   ========================================================= */
 @media (max-width: 620px) {
-  .imagen {
-    width: 15rem;
-  }
-   .grid {
+  .grid {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
-  .grid > div {
-    grid-column: auto !important; /* evita conflicto con grid */
+  .about-text,
+  .foto,
+  .imagen {
+    grid-column: auto !important;
   }
 
-  .imagen2 {
-    width: 70%;
-    margin-top: 1rem;
-  }
-  .btn-card {
-    margin: 0;
-    width: 9rem;
-    font-size: 1rem;
-  }
+  .imagen  { width: clamp(14rem, 60vw, 22rem); }
+  .imagen2 { width: clamp(16rem, 65vw, 24rem); }
 
-  .icons i {
-    font-size: 3rem;
-  }
+  .flexRow.projects-row { flex-direction: column; align-items: center; }
+  .project-card { width: min(90vw, 40rem); }
 
-  .p {
-    font-size: 1.5rem;
-  }
+  .exp-logo     { width: 40%; }
+  .exp-logo--sm { width: 30%; }
 
-  .title {
-    font-size: 2.5rem;
-  }
+  #formularioNav { display: none !important; }
 
-  .card {
-    height: 40vh;
-    margin-bottom: 1rem;
-  }
-
-  .card-text {
-    font-size: 1rem;
-  }
-
-.card-glass {
-    width: 40vh;
-  }
-
-.icon-item i {
-  font-size: 1rem; 
+  .cta-buttons   { flex-direction: column; align-items: center; }
+  .btn-card      { width: min(90%, 28rem); text-align: center; }
 }
 
-.icon-item .skill {
-  font-size: 1rem; 
-}
-
-  .soft-card {
-    width: 70%;
-  }
-    .flexRow {
-    flex-direction: column;
-    margin-bottom: 2rem ;
-  }
-
-  .flexRow .card {
-    width: 35vh ;
-  }
-
-  .flexRow img {
-    width: 50% ;
-    margin: auto;
-  }
-  .flexColumn h1 {
-    text-align: center;
-  }
-
+/* =========================================================
+   BREAKPOINT 3 — MOVIL PEQUENO  (≤ 380px)
+   ========================================================= */
+@media (max-width: 380px) {
+  .title      { font-size: 2rem; }
+  .btn-card   { width: 90%; }
+  .card-glass { border-radius: 2rem; }
+  .icon-item  { margin: 0.3rem; }
 }
